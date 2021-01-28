@@ -1,0 +1,26 @@
+plugins {
+	id "java"
+}
+
+def toolsJar = new File("${System.env['JAVA_HOME']}/lib/tools.jar")
+
+dependencies {
+	// In Java8 and below tools.jar is required for using the Attach API
+	//
+	if (toolsJar.exists()) {
+		implementation files(toolsJar)
+	}
+}
+
+jar {
+	manifest {
+		attributes(
+			"Manifest-Version": "1.0",
+			"Premain-Class": "test.SimpleJavaAgent",
+			"Agent-Class": "test.SimpleJavaAgent",
+			"Can-Redefine-Classes": "true",
+			"Can-Retransform-Classes": "true",
+			"Main-Class": "test.AgentInjector"
+		)
+	}
+}
