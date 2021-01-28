@@ -1,11 +1,11 @@
 
 A simple java agent that does nothing but print a line to the output stream every second.
 
-== Building ==
+# Building
 
 ./gradlew build
 
-== Running ==
+# Running
 
-For java 8 and below use `./run-java8.sh`
-For java 11 and above use `./run-java11.sh`
+- For java 8 and below use `./run-java8.sh`
+- For java 11 and above use `./run-java11.sh`
